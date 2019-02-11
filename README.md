@@ -11,7 +11,7 @@ method)
 
 ## Solution
 Implementation of Apriori algorithm to identify frequent text item-sets with minimum support. 
-Algorithm only outputs the sets which is higher than minimum support which is buit as a percentace.
+Algorithm only outputs the sets which is higher than minimum support and buit as a percentage.
 
 
 ##### Data preprocessing
