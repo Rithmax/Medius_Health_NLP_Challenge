@@ -14,14 +14,14 @@ Implementation of Apriori algorithm to identify frequent text item-sets with min
 Algorithm only outputs the sets which is higher than minimum support and buit as a percentage.
 
 
-##### Data preprocessing
+#### Data preprocessing
 Assuming that each raw represent a independent post,
 * Posts are split into the words
 * Split posts into words and get unique words from each post
 * Stop words and punctuations are removed (Freq_Sets_alternative.py removes only punctuations)
 * Running the Apriori algorithm.
 
-##### How to run?  Implemented in python 3.6
+#### How to run?  Implemented in python 3.6
 Two variables defined inside the scripts,
 * filename = 'machine_learning_challenge.xlsx'
 * min_sup_percent = 30
@@ -53,6 +53,9 @@ Since the task is to find only frequent text sets, conidance or mining rules hav
 implemented in the Apriori algorithm. 
 
 ## Test Results
+* python Freq_Sets.py > min_sup_percent = 30
+* python Freq_Sets_alternative.py > min_sup_percent = 70
+
 ![alt text](img/test_output.png)
 
 
