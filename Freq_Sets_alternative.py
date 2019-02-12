@@ -4,33 +4,30 @@
 # 11/02/2019
 # Medius NLP Challenge
 
-# Data loading and preprocessing conducted using pandas and nltk
+# Data loading conducted using pandas
 import pandas as pd
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
-from nltk.tokenize import RegexpTokenizer
+import string
 
 # Data loading and Preprocessing
 def load_data_and_preprocessing(fname):
-    """Load data from *.xlsx
+    """Load data from *.xlxs
     """
-    # To make all the data meaningful stopwords and punctuations were removed
+    # to make data meaningful puncuations were removed
     dat = pd.read_excel(fname, sheet_name=None, header=None)
-    stop_words = set(stopwords.words("english"))
 
     document = []
 
     for post in dat[1]:
 
         post = post.lower() # Change all the text to lower case
-        tokenizer = RegexpTokenizer(r'\w+') # tokenize sentences to words without punctuations
-        tokens = set(tokenizer.tokenize(post))
-        filtered_sentence = [w for w in tokens if not w in stop_words] # filtering all the stop words
+        post = set(post.split())
+
+        table = str.maketrans('', '', string.punctuation)
+        filtered_sentence = [w.translate(table) for w in post]
 
         document.append(filtered_sentence)
 
     return document
-
 
 #  Creates the first candidate set using the dataset
 def gen_C1(dataset):
@@ -122,7 +119,7 @@ if __name__ == '__main__':
     # ex: Let total posts=40, and min_sup_percent = 50. Then gen_freq_item_set outputs frequency sets with
     # number of occurrences where occurrences are greater than 20.
 
-    min_sup_percent = 30
+    min_sup_percent = 70
     freq_array = []
 
     # data loeading and preprocessing using nltk
